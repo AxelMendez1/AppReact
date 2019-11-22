@@ -1,16 +1,18 @@
-import React from "react";
+import React, { ReactChild } from "react";
 
-const AppBody: React.FC<{ header: string; quote?: string }> = ({
-  header,
-  quote,
-  children
-}) => (
+type AppBodyProps = {
+  header: string;
+  quote?: string;
+  children: ReactChild;
+};
+
+const AppBody: React.FC<AppBodyProps> = ({ header, quote, children }) => (
   <section className="app-body">
     <section className="body-content">
       <h2>{header}</h2>
       {quote && <blockquote>{quote}</blockquote>}
     </section>
-    {children && {children}}
+    {children}
   </section>
 );
 
